@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guachiman</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <div class="navbar">      
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="javascript:void(0);" class="brand">Guachiman</a>
+            <ul class="nav">
+              <li class="active"><%= link_to "Servidores",servers_path %></li>             
+            </ul>
+          </div>
+        </div><!-- /topbar-inner -->
+    </div>
+    <div class="container">
+      <%= yield %>
+    </div>    
+    <%= yield :javascript %>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<h1 style="float:left;">Servidores</h1>
+<div style="float:right;margin-bottom: 20px;">
+  <%= link_to 'Agregar servidor', new_server_path, :class=> "btn btn-primary" %>
+</div>
+<div class="clear"></div>
+<table class="table table-striped">
+  <thead>  
+    <tr>
+      <th>Nombre Servidor</th>
+      <th>Dirección</th>
+      <th>Puerto</th>
+      <th>Descripción</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @servers.each do |server| %>
+    <tr>
+      <td><%= server.name %></td>
+      <td><%= server.address %></td>
+      <td><%= server.port %></td>
+      <td><%= server.description %></td>
+      <td><%= link_to 'Detalle', server %></td>
+      <td><%= link_to 'Editar', edit_server_path(server) %></td>
+      <td><%= link_to 'Eliminar', server, :confirm => 'Esta seguro que desea eliminar el servidor?', :method => :delete %></td>      
+    </tr>
+    <% end %>
+  </tbody>
+</table>

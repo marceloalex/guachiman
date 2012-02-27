@@ -1,0 +1,44 @@
+<%= form_for(@server, :html => {:class => "form-horizontal"}) do |f| %>
+  <% if @server.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@server.errors.count, "error") %> prohibited this server from being saved:</h2>
+
+      <ul>
+      <% @server.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="row">
+  <div class="control-group">
+    <%= f.label :name,:class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name, :class => "input-xlarge" %>
+    </div>    
+  </div>
+  <div class="control-group">
+    <%= f.label :address,:class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :address, :class => "input-xlarge" %>
+    </div>    
+  </div>
+  <div class="control-group">
+    <%= f.label :port,:class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :port, :class => "input-xlarge" %>
+    </div>    
+  </div>
+  <div class="control-group">
+    <%= f.label :description,:class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description, rows: 4, :class => "input-xlarge" %>
+    </div>    
+  </div>
+  <div class="actions">
+    <%= f.submit "Guardar Datos", :class => "btn-primary" %>
+    <%= link_to "Cancelar", servers_path, :class => "btn" %>
+  </div>
+</div>
+
+<% end %>

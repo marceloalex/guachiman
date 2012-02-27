@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<div class="page-header">
+  <h1>
+    <%= @server.name %>
+    <small>
+      <%= @server.server_and_port %>
+    </small>
+  </h1>
+</div>
+
+<div class="control-group">
+  <strong>Descripción:</strong>
+  <%= @server.description %>
+</div>
+<div>
+  <%= link_to 'Volver al Listado de Servidores', servers_path, :class => "btn" %>
+  <%= link_to 'Editar Servidor', edit_server_path(@server), :class => "btn" %>
+</div>
+
+<% unless @server.checks.empty? %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Resultado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @server.checks.each do |check| %>
+    <tr>
+      <td><%= check.created_at %></td>
+      <td><%= check.result %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
